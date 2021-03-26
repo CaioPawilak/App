@@ -13,7 +13,7 @@ class CategoriesRepository implements ICategoriesRepository {
     }
 
     public static getInstance(): CategoriesRepository {
-        if (!CategoriesRepository) {
+        if (!CategoriesRepository.INSTANCE) {
             return CategoriesRepository.INSTANCE = new CategoriesRepository();
         }
 
