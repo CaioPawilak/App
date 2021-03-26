@@ -1,20 +1,30 @@
-import { ICategoriesRepository } from "../repositories/ICategoriesRepository"
+import { ISpecificationRepository } from "../repositories/ISpecificationRepository"
 
 interface IRequest {
     name: string;
     description: string;
 }
 
-class CreateCategoryService {
+class CreateSpecificationService {
+    constructor(private specificationRepository: ISpecificationRepository) {
+        this.specificationRepository = specificationRepository;
+    }
 
-    constructor(private categoryRepo : ICategoriesRepository){ }
     execute({name, description}: IRequest): void{
 
-        if(this.categoryRepo.findByName(name)){
-           throw new Error("Category already exists.")
+        const SpecificationAlradyExists = this.specificationRepository.findByName(name)
+
+        if(SpecificationAlradyExists){
+
+            throw new Error("Specification Alrady Exists")
         }
-        this.categoryRepo.create({ name, description })
+
+            this.specificationRepository.create({ name, description})
     }
+
+
+
 }
 
-export {CreateCategoryService}
+
+export { CreateSpecificationService }
