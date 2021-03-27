@@ -3,7 +3,6 @@ import { CreateCategoryUseCase } from './CreateCategoryUseCase';
 
 class CreateCategoryController {
 
-
     constructor(private createCategoryUseCase : CreateCategoryUseCase ){
 
     }
