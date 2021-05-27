@@ -14,7 +14,7 @@ return createSpecificationController.handle(request, response)
 
 specificationRoutes.get('/', (request, response)=>{
     // const all = specificationRepository.list();
-    return response.status(201).json({message:"Hi"})
+    return response.status(201).json({message:"Ok"})
 
 })
 
